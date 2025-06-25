@@ -1,8 +1,17 @@
 ---
-const platform = "github";
-const username = "marcelocoelho1";
+const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-  <p>Learn more about my projects on <a href={`https://www.${platform}.com/${username}`}>{platform}</a>!</p>
+  <p>&copy; {currentYear} Marcelo. All rights reserved.</p>
 </footer>
+
+<style>
+  footer {
+    margin-top: 4rem;
+    padding: 2rem;
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+</style>

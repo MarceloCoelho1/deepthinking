@@ -1,58 +1,77 @@
 ---
-import '../styles/global.css';
-import Navigation from '../components/Navigation.astro';
-import Footer from '../components/Footer.astro';
-
-const pageTitle = "About Me";
-
-const identity = {
-  firstName: "Marcelo",
-  country: "Brazil",
-  occupation: "Software Engineer",
-  hobbies: ["Code", "birdwatching", "baseball"],
-};
-
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
-    <style>
-      h1 {
-        color: purple;
-        font-size: 3rem;
-      }
-      .skill {
-        color: green;
-        font-weight: bold;
-      }
-    </style>
-  </head>
-  <body>
-    <Navigation />
-    <h1>{pageTitle}</h1>
-    <p>Here are a few facts about me:</p>
-    <ul>
-      <li>My name is {identity.firstName}.</li>
-      <li>
-        I live in {identity.country} and I work as a {identity.occupation}.
-      </li>
-      {
-        identity.hobbies.length >= 2 && (
-          <li>
-            Two of my hobbies are: {identity.hobbies[0]} and{" "}
-            {identity.hobbies[1]}
-          </li>
-        )
-      }
-    </ul>
-    <p>My skills are:</p>
-    <ul>
-      {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
-    <Footer />
-  </body>
-</html>
+<BaseLayout title="About Me">
+  <h1>About Me</h1>
+
+  <img
+    src="https://avatars.githubusercontent.com/u/79272572?v=4"
+    alt="A photo of Marcelo"
+    style="width: 200px; height: 200px; border-radius: 50%; display: block; margin: 2rem auto;"
+  />
+
+  <h2>Hi, I'm Marcelo.</h2>
+
+  <p>
+    I've always been driven by a deep-seated curiosity about how things work.
+    Not just in technology, but in the world at large. This curiosity led me to
+    software, and my focus on its core principles—logic, structure, and
+    systems—has now evolved into formal research in Machine Learning. This blog
+    is simply a public reflection of that ongoing exploration.
+  </p>
+
+  <p>
+    Of course, life is about more than just a computer screen. When I'm not
+    thinking about code or architecture, I'm probably diving into a video game
+    (yep, haha). Beyond that, I love the simple things: getting lost in a
+    bookstore, grabbing a good coffee, and reading books on topics that have
+    nothing to do with tech.
+  </p>
+
+  <p>
+    This space is as much for my own learning as it is for sharing. It's where I
+    build my understanding by trying to explain things clearly. If my journey
+    resonates with you, or if you'd just rather see something different instead of lines
+    of code, feel free to connect.
+  </p>
+
+  <p class="social-links">
+    You can find my professional work and projects on <a
+      href="https://github.com/marcelocoelho1"
+      target="_blank"
+      rel="noopener noreferrer">GitHub</a
+    >, and a glimpse into my life beyond the keyboard on <a
+      href="https://instagram.com/marcelo_henri22"
+      target="_blank"
+      rel="noopener noreferrer">Instagram</a
+    >.
+  </p>
+</BaseLayout>
+
+<style>
+  h1,
+  h2 {
+    text-align: center;
+  }
+
+  img {
+    border: 5px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  p {
+    font-size: 1.3rem;
+    line-height: 1.7;
+  }
+
+  .social-links {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .social-links a {
+    font-weight: bold;
+    color: var(--color-primary);
+  }
+</style>

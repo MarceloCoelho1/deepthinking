@@ -1,0 +1,45 @@
+---
+const navLinks = [
+  { href: "/about/", text: "About" },
+  { href: "/blog/", text: "Blog" },
+];
+---
+<header>
+  <div class="logo">
+    <a href="/">Marcelo.dev</a>
+  </div>
+  <nav>
+    {navLinks.map(link => <a href={link.href}>{link.text}</a>)}
+  </nav>
+</header>
+
+<style>
+  header {
+    max-width: var(--content-width); 
+    margin: 0 auto;
+    padding: 2rem; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary); 
+    text-decoration: none;
+  }
+
+  nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  nav a {
+    font-size: 1.1rem;
+    color: var(--color-text);
+  }
+  nav a:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+</style>

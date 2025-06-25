@@ -1,22 +1,148 @@
 ---
-import Footer from "../components/Footer.astro";
-import Navigation from "../components/Navigation.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
+const topics = [
+  { name: "Operating Systems", href: "/blog/category/os" },
+  { name: "Algorithms", href: "/blog/category/algorithms" },
+  { name: "Software Design", href: "/blog/category/software-design" },
+  { name: "Machine Learning", href: "/blog/category/machine-learning" },
+  { name: "Math & Stats", href: "/blog/category/math-stats" },
+  { name: "Low-Level", href: "/blog/category/low-level" },
+  { name: "CS Theory", href: "/blog/category/cs-theory" },
+  { name: "Book Notes", href: "/blog/category/book-notes" }, 
+];
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} >
-    <title>Astro</title>
-  </head>
-  <body>
-    <Navigation />
+<BaseLayout title="Home">
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Exploring Computing from First Principles.</h1>
+      <p>
+        I believe the best way to master a craft is to understand its core.
+        Following the Feynman principle, "What I cannot create, I do not
+        understand," this blog is my attempt to build and deconstruct
+        foundational concepts from the ground up.
+      </p>
+    </div>
+    <div class="hero-image">
+      <img
+        src="https://avatars.githubusercontent.com/u/79272572?v=4"
+        alt="Marcelo's profile picture"
+      />
+    </div>
+  </section>
 
-    <h1>Personal Blog</h1>
-    <Footer />
+  <section class="topics-section">
+    <h2>Topics</h2>
+    <div class="topics-grid">
+      {
+        topics.map((topic) => (
+          <a href={topic.href} class="topic-card">
+            <h3>{topic.name}</h3>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
 
-  </body>
-</html>
+<style>
+  .hero {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 6rem;
+  }
+
+  .hero-text {
+    flex: 2;
+  }
+
+  .hero-text h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .hero-text p {
+    font-size: 1.25rem;
+    color: #555;
+  }
+
+  .hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  .topics-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .topics-grid {
+    display: grid;
+    /* 4 colunas em telas grandes */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .topic-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 2rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-text);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .topic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .topic-card h3 {
+    color: var(--color-text);
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 960px) {
+    .topics-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .topics-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-text h1 {
+      font-size: 2.5rem;
+    }
+    .topics-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
