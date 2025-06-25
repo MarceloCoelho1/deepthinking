@@ -1,15 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
 const topics = [
-  { name: "Operating Systems", href: "/blog/category/os" },
-  { name: "Algorithms", href: "/blog/category/algorithms" },
-  { name: "Software Design", href: "/blog/category/software-design" },
-  { name: "Machine Learning", href: "/blog/category/machine-learning" },
-  { name: "Math & Stats", href: "/blog/category/math-stats" },
-  { name: "Low-Level", href: "/blog/category/low-level" },
-  { name: "CS Theory", href: "/blog/category/cs-theory" },
-  { name: "Book Notes", href: "/blog/category/book-notes" }, 
+  { name: "Software Engineering", href: "/category/software-engineering" },
+  { name: "Machine Learning", href: "/category/machine-learning" },
+  { name: "Operating Systems", href: "/category/os" },
+  { name: "Math & Stats", href: "/category/math-stats" },
+  { name: "CS Theory", href: "/category/cs-theory" },
+  { name: "Book Notes", href: "/category/book-notes" },
+  { name: "Meta", href: "/category/meta" },
 ];
 ---
 
@@ -18,10 +16,9 @@ const topics = [
     <div class="hero-text">
       <h1>Exploring Computing from First Principles.</h1>
       <p>
-        I believe the best way to master a craft is to understand its core.
-        Following the Feynman principle, "What I cannot create, I do not
-        understand," this blog is my attempt to build and deconstruct
-        foundational concepts from the ground up.
+        I believe the best way to master a craft is to understand its core. This
+        blog is my digital workshop for doing just that—a place where I build
+        concepts from scratch to truly understand them.
       </p>
     </div>
     <div class="hero-image">
@@ -31,7 +28,6 @@ const topics = [
       />
     </div>
   </section>
-
   <section class="topics-section">
     <h2>Topics</h2>
     <div class="topics-grid">
@@ -45,59 +41,53 @@ const topics = [
     </div>
   </section>
 </BaseLayout>
-
 <style>
   .hero {
     display: flex;
-    gap: 2rem;
+    gap: 4rem;
     align-items: center;
     margin-bottom: 6rem;
   }
-
   .hero-text {
     flex: 2;
   }
-
   .hero-text h1 {
-    font-size: 3rem;
-    line-height: 1.1;
+    font-size: 3.2rem;
+    line-height: 1.2;
     margin-bottom: 1rem;
   }
-
   .hero-text p {
     font-size: 1.25rem;
     color: #555;
   }
-
   .hero-image {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
   .hero-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow:
+      0 10px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
   }
-
   .topics-section h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
   }
-
   .topics-grid {
     display: grid;
-    /* 4 colunas em telas grandes */
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
   }
-
   .topic-card {
     background-color: #fff;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #eef0f3;
     border-radius: 8px;
     padding: 2rem 1rem;
     text-align: center;
@@ -107,42 +97,23 @@ const topics = [
       transform 0.2s ease,
       box-shadow 0.2s ease;
   }
-
   .topic-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
   }
-
   .topic-card h3 {
     color: var(--color-text);
     margin: 0;
     font-size: 1.1rem;
   }
-
-  @media (max-width: 960px) {
-    .topics-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
   @media (max-width: 768px) {
     .hero {
       flex-direction: column;
       text-align: center;
-      margin-bottom: 4rem;
     }
-
-    .topics-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 480px) {
-    .hero-text h1 {
-      font-size: 2.5rem;
-    }
-    .topics-grid {
-      grid-template-columns: 1fr;
+    .hero-image img {
+      width: 200px;
+      height: 200px;
     }
   }
 </style>

@@ -4,15 +4,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout title="About Me">
   <h1>About Me</h1>
-
   <img
     src="https://avatars.githubusercontent.com/u/79272572?v=4"
     alt="A photo of Marcelo"
     style="width: 200px; height: 200px; border-radius: 50%; display: block; margin: 2rem auto;"
   />
-
   <h2>Hi, I'm Marcelo.</h2>
-
   <p>
     I've always been driven by a deep-seated curiosity about how things work.
     Not just in technology, but in the world at large. This curiosity led me to
@@ -20,7 +17,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     systems—has now evolved into formal research in Machine Learning. This blog
     is simply a public reflection of that ongoing exploration.
   </p>
-
   <p>
     Of course, life is about more than just a computer screen. When I'm not
     thinking about code or architecture, I'm probably diving into a video game
@@ -28,48 +24,42 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     bookstore, grabbing a good coffee, and reading books on topics that have
     nothing to do with tech.
   </p>
-
   <p>
-    This space is as much for my own learning as it is for sharing. It's where I
-    build my understanding by trying to explain things clearly. If my journey
-    resonates with you, or if you'd just rather see something different instead of lines
-    of code, feel free to connect.
+    If my journey resonates with you, or if you're just curious about life
+    beyond the keyboard, feel free to connect.
   </p>
-
   <p class="social-links">
     You can find my professional work and projects on <a
-      href="https://github.com/marcelocoelho1"
+      href="https://github.com/YOUR_USERNAME"
       target="_blank"
       rel="noopener noreferrer">GitHub</a
     >, and a glimpse into my life beyond the keyboard on <a
-      href="https://instagram.com/marcelo_henri22"
+      href="https://instagram.com/YOUR_USERNAME"
       target="_blank"
       rel="noopener noreferrer">Instagram</a
     >.
   </p>
 </BaseLayout>
-
 <style>
   h1,
   h2 {
     text-align: center;
   }
-
   img {
     border: 5px solid white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
-
   p {
     font-size: 1.3rem;
     line-height: 1.7;
+    max-width: 80ch;
+    margin-left: auto;
+    margin-right: auto;
   }
-
   .social-links {
     text-align: center;
     margin-top: 3rem;
   }
-
   .social-links a {
     font-weight: bold;
     color: var(--color-primary);
