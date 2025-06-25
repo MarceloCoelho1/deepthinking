@@ -15,4 +15,4 @@ Here, you'll find deep dives into topics like:
 - **Machine Learning** 
 - **Software Design** 
 - **Cs Theory**
-- **Mathematical & Statistical**
+- **Mathematics & Statistics**
